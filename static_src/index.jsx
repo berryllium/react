@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App'
 
 
 let messages = ['Привет', 'Как дела?'];
@@ -21,6 +22,6 @@ const Chat = (props) =>
    </div>
 
 ReactDOM.render(
-   <Chat messages={messages} />,
+   <App />,
    document.getElementById('root'),
 );
