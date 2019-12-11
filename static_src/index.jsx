@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App'
+import App from './components/App';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 let messages = ['Привет', 'Как дела?'];
@@ -17,8 +18,9 @@ const MessageComponent = (props) => <div>{props.text}</div>;
 const MessageField = (props) => props.messages.map(message => <MessageComponent text={message} />);
 const Chat = (props) =>
    <div>
+      <MuiThemeProvider>
       <MessageField messages={props.messages} />
-      <SendButton />
+      </MuiThemeProvider>
    </div>
 
 ReactDOM.render(
