@@ -35,6 +35,10 @@ module.exports = {
           extensions: ['.js', '.jsx'],
        },
       },
+      {
+        test: /\.css/,
+        loader: 'style-loader!css-loader'
+      }
     ]
   },
 

@@ -5,8 +5,8 @@ export default class Message extends React.Component {
     mes: PropTypes.object.isRequired,
   }
   render() {
-    return <div>
-      <p><b>{this.props.mes.author}</b></p>
+    return <div className="message">
+      <p className="message-sender"><b>{this.props.mes.author}</b></p>
       <p>{this.props.mes.text}</p><br />
       </div>
   }
