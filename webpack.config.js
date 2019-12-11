@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require('webpack');
 
 module.exports = {
+  mode: 'development',
   entry: {
     app: './index.jsx',
   },
@@ -19,8 +20,26 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: ['@babel/env','@babel/react'],
-        }
+          plugins: [
+            [
+                "@babel/plugin-proposal-class-properties",
+                {
+                    "loose": true
+                }
+            ]
+        ]
+
+        },
+        resolve: {
+          modules: [`${__dirname}/static_src`, 'node_modules'],
+          extensions: ['.js', '.jsx'],
+       },
       },
+      {
+        test: /\.css/,
+        loader: 'style-loader!css-loader'
+      }
     ]
-  }
+  },
+
 }
