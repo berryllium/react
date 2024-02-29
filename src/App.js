@@ -1,13 +1,22 @@
+import { useState } from 'react';
 import './App.css';
 import Message from './components/Message';
+import Form from './components/Form';
+
 
 function App() {
-  let text = 'This is a message from App'
+  const [messages, setMessages] = useState([])
+  const addMessage = (newMessage) => {
+    setMessages(prevMessages => [...prevMessages, newMessage])
+  }
+
   return (
-    <>
-      <Message text={text}/>
-    </>
-  );
+    <div className='p-5'>
+      <Form addMessage={addMessage} />
+      {messages.map((message, index) => <Message key={index} message={message}/>)}
+    </div>
+  )
+
 }
 
 export default App;
