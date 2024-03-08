@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import './App.css';
-import Message from './components/Message';
+import { useEffect, useState } from 'react';
 import Form from './components/Form';
+import MessageList from './components/MessageList';
+import { Container } from '@mui/material';
 
 
 function App() {
@@ -10,11 +10,21 @@ function App() {
     setMessages(prevMessages => [...prevMessages, newMessage])
   }
 
+  useEffect(() => {
+    if(messages.length && messages[messages.length - 1].author !== 'bot') {
+      const timer = setTimeout(() => addMessage({
+        text: 'This is bot\'s answer!',
+        author: 'bot'
+      }), 1500)
+      return () => clearTimeout(timer);
+    }
+  }, [messages])
+
   return (
-    <div className='p-5'>
+    <Container>
+      <MessageList messages={messages} />
       <Form addMessage={addMessage} />
-      {messages.map((message, index) => <Message key={index} message={message}/>)}
-    </div>
+    </Container>
   )
 
 }

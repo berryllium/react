@@ -1,10 +1,10 @@
-import styles from "./Message.module.scss"
+import { Paper, Typography } from "@mui/material";
 
 export default function Message(props) {
     return (
-        <div className={styles.message}>
-            <div className={styles.text}>{props.message.text}</div>
-            <div className={styles.author}>{props.message.author}</div>
-        </div>
+        <Paper elevation={3} style={{ padding: 10, marginBottom: 10 }}>
+            <Typography variant="body1"><b>{props.message.text}</b></Typography>
+            <Typography variant="body1">{props.message.author}</Typography>
+        </Paper>
     )
 }
