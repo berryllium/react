@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
-import { Button, Container, Grid, TextField, TextareaAutosize } from "@mui/material";
+import { useState } from "react"
+import { Button, Grid, TextField } from "@mui/material";
 
-export default function Form({addMessage}) {
+export default function Form({onSendMessage}) {
     const [fields, setFields] = useState({})
 
     const handleChange = (e) => {
@@ -14,7 +14,7 @@ export default function Form({addMessage}) {
 
     const submit = (e) => {
         e.preventDefault()
-        addMessage(fields)
+        onSendMessage(fields)
         setFields({})
     }
 
