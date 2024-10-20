@@ -16,3 +16,10 @@ header .active {
   color: black!important;
   font-weight: bold;
 }
+
+@media (prefers-color-scheme: light) {
+  header .active {
+    color: white!important;
+    font-weight: bold;
+  }
+}

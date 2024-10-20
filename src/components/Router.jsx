@@ -1,8 +1,8 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
-import HomePage from './Pages/HomePage'
-import ProfilePage from './Pages/ProfilePage'
-import ChatPage from './Pages/ChatPage'
+import ChatPage from '../pages/ChatPage'
+import HomePage from '../pages/HomePage'
+import ProfilePage from '../pages/ProfilePage'
 
 export default function Router() {
   return (
