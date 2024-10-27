@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button, Grid, TextField } from "@mui/material";
-import { addMessage } from "../store/chats";
+import { addMessageWithReplay } from "../store/chats";
 import { useDispatch } from "react-redux";
 
 export default function Form({chatId}) {
@@ -17,7 +17,7 @@ export default function Form({chatId}) {
 
     const submit = (e) => {
         e.preventDefault()
-        dispatch(addMessage({chatId: chatId, message: fields}))
+        dispatch(addMessageWithReplay({chatId: chatId, message: fields}))
         setFields({})
     }
 
